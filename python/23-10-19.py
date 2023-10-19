@@ -199,20 +199,20 @@ Traceback (most recent call last):
   File "<pyshell#82>", line 1, in <module>
     f"ac {f'{x!s}':0.1f}"
 ValueError: Unknown format code 'f' for object of type 'str'
->>> f"ac {str(x):0.1f}"
+f"ac {str(x):0.1f}"
 Traceback (most recent call last):
   File "<pyshell#83>", line 1, in <module>
     f"ac {str(x):0.1f}"
 ValueError: Unknown format code 'f' for object of type 'str'
->>> f"ac {x:0.1f}"
+f"ac {x:0.1f}"
 Traceback (most recent call last):
   File "<pyshell#84>", line 1, in <module>
     f"ac {x:0.1f}"
 ValueError: Unknown format code 'f' for object of type 'str'
->>> f"ac {float(x):0.1f}"
+f"ac {float(x):0.1f}"
 'ac 12.6'
->>> for l in "abc": print(l)
-... 
+for l in "abc": print(l)
+
 a
 b
 c
@@ -235,3 +235,20 @@ SyntaxError: expected ':'
 2
 3
 4
+>>> from functools import reduce
+>>> zip(range(0,4))
+<zip object at 0x0000021B78B6B840>
+>>> repr(zip(range(0,4)))
+'<zip object at 0x0000021B78B81F40>'
+>>> list(zip(range(0,4)))
+[(0,), (1,), (2,), (3,)]
+>>> list(zip(range(0,4),range(0,4)))
+[(0, 0), (1, 1), (2, 2), (3, 3)]
+>>> zip(*range(0,4))
+Traceback (most recent call last):
+  File "<pyshell#102>", line 1, in <module>
+    zip(*range(0,4))
+TypeError: 'int' object is not iterable
+>>> x = range(0,4)
+>>> list(x)
+[0, 1, 2, 3]
