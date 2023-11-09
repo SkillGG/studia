@@ -1,26 +1,26 @@
 Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license()" for more information.
->>> dok = input("Dokad: ")
+dok = input("Dokad: ")
 Dokad: Warsaw
->>> kie = input("Kiedy: ")
+kie = input("Kiedy: ")
 Kiedy: Friday
->>> print("You are going to "+dok+" on "+kie)
+print("You are going to "+dok+" on "+kie)
 You are going to Warsaw on Friday
->>> for i in range(0,int(print("Liczba: ")))
+for i in range(0,int(print("Liczba: ")))
 SyntaxError: expected ':'
->>> for i in range(0,int(print("Liczba: "))):
-...     print(i)
-... 
-...     
+for i in range(0,int(print("Liczba: "))):
+    print(i)
+
+    
 Liczba: 
 Traceback (most recent call last):
   File "<pyshell#6>", line 1, in <module>
     for i in range(0,int(print("Liczba: "))):
 TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
->>> for i in range(0,int(print("Liczba: "))):
-...     print(i)
-... 
-...     
+for i in range(0,int(print("Liczba: "))):
+    print(i)
+
+    
 Liczba: 
 Traceback (most recent call last):
   File "<pyshell#10>", line 1, in <module>
@@ -67,3 +67,35 @@ Liczba12
 26
 28
 30
+>>> def AN():
+...     name = input("Imie: ")
+...     print(name)
+... 
+...     
+>>> AN()
+Imie: Marcin
+Marcin
+>>> Name: amrcin
+amrcin
+>>> i
+15
+>>> Name: adam
+Hello adam!
+>>> AskName()
+Name: adam
+Hello adam!
+>>> def AskName():
+...     print("u")
+... 
+...     
+>>> AskName()
+u
+>>> AskName()
+Name: adam
+Hello adam!
+>>> 4/3
+1.3333333333333333
+>>> _
+1.3333333333333333
+>>> round(_,2)
+1.33
