@@ -15,16 +15,18 @@ window.onload = () => {
       code
     }) => {
       if (code === "KeyD") {
-        localStorage.setItem("devMode", "true");
-        const dialog = document.createElement("dialog");
-        dialog.innerHTML = "Dev mode!<br>Next refresh won't remove everything!";
-        dialog.style.position = "fixed";
-        dialog.style.top = "15px";
-        dialog.style.fontSize = "1.5em";
-        dialog.style.margin = "0 auto";
-        document.body.append(dialog);
-        dialog.show()
-        setTimeout(() => dialog.close(), dialogTimer);
+        if (localStorage.getItem("devMode") !== "true") {
+          localStorage.setItem("devMode", "true");
+          const dialog = document.createElement("dialog");
+          dialog.innerHTML = "Dev mode!<br>Next refresh won't remove everything!";
+          dialog.style.position = "fixed";
+          dialog.style.top = "15px";
+          dialog.style.fontSize = "1.5em";
+          dialog.style.margin = "0 auto";
+          document.body.append(dialog);
+          dialog.show()
+          setTimeout(() => dialog.close(), dialogTimer);
+        }
       }
     }
     let i = 0;
