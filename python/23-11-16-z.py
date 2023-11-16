@@ -125,10 +125,7 @@ SyntaxError: invalid syntax
 ...     t = input("Tekst: ")
 ...     l = int(input("Liczba: "))
 ...     x = 0
-...     for i in t:
-...         if i == "a":
-...             x+=1
-...     if x == l:
+...     if t.count("a") == l:
 ...         print("Spełnia")
 ...     else: print("Nie spełnia")
 ... 
