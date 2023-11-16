@@ -101,14 +101,14 @@ Dzis jest Czwartek, godzina 12:25
 
 #zadanie 5
 imiona = ["Ala","Alan","Ada","Adam"]
-for e,i in enumerate(imiona):
+for i,e in enumerate(imiona):
 ...     print(f"{i} => {e}")
 ... 
 ...     
-Ala => 0
-Alan => 1
-Ada => 2
-Adam => 3
+0 => Ala
+1 => Alan
+2 => Ada
+3 => Adam
 >>> 
 >>> #zad 6
 >>> 
