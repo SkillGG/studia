@@ -2,6 +2,9 @@
 const dialogTimer = 1000;
 const bodyClearTimer = 100;
 const imgMargin = "5px";
+const imageSize = "90vh";
+
+
 const clearBody = () => {
   document.body.setAttribute("class", "")
   document.body.setAttribute("style", "background-image:none !important; background-color: #181a1b !important;")
@@ -76,7 +79,8 @@ window.onload = () => {
       ChapterSelect.append(newSelect)
       if(newSelect.selectedIndex < newSelect.children.length-1)
         ChapterSelect.append(nextBtn)
-      
+      ChapterSelect.append(document.createElement("br"));
+      ChapterSelect.append("Press D to show full page after refresh!")
       // create title
       const title = document.createElement("div");
       title.style.width = "fit-content";
@@ -94,6 +98,7 @@ window.onload = () => {
         if (img.src.includes("jpg")) {
           const nimg = document.createElement("img")
           nimg.src = img.src;
+          nimg.style.maxHeight = imageSize;
           nimg.style.justifySelf = "center";
           nimg.style.marginBottom = imgMargin;
           // console.log("adding image", nimg)
