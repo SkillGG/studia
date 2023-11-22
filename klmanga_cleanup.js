@@ -1,3 +1,4 @@
+// code to make klmanga w/o ads and other junk
 const dialogTimer = 1000;
 const bodyClearTimer = 100;
 const imgMargin = "5px";
@@ -39,11 +40,43 @@ window.onload = () => {
     const name = document.querySelector(".manga-name").innerText;
     const chapterNum = document.querySelector("#zlist-chs > select > option[selected]").innerText;
     const images = [...document.querySelectorAll(".chapter-content p > img")];
-    const header = document.querySelector("#header");
+    const select = document.querySelector(".chapter-select select.form-control");
+    const ChapterSelect = document.createElement("div");
+    const newSelect = document.createElement("select");
+    {
+    	for(const opt of [...select.children].toReversed()){
+      		newSelect.append(opt);
+    	}
+      	newSelect.selectedIndex = [...newSelect.children].findIndex(o=>o.getAttribute("selected")!==null)
+    }
+    newSelect.onchange = (e)=>window.location = e.target.value;
     if (images.length > 0) {
       // clear body
       document.body.innerHTML = "";
-      document.body.append(header);
+      
+      // create chapter select
+      document.body.append(ChapterSelect);
+      ChapterSelect.style.position = "fixed";
+      ChapterSelect.style.top = "20%";
+      ChapterSelect.style.left = "10px";
+      const prevBtn = document.createElement("button");
+      prevBtn.innerText = "Prev";
+      prevBtn.onclick = (e)=>{
+        newSelect.selectedIndex--;
+        newSelect.dispatchEvent(new Event("change"))
+      }
+      const nextBtn = document.createElement("button");
+      nextBtn.innerText = "Next";
+      nextBtn.onclick = (e)=>{
+        newSelect.selectedIndex++;
+        newSelect.dispatchEvent(new Event("change"))
+      }
+      if(newSelect.selectedIndex > 0)
+        ChapterSelect.append(prevBtn);
+      ChapterSelect.append(newSelect)
+      if(newSelect.selectedIndex < newSelect.children.length-1)
+        ChapterSelect.append(nextBtn)
+      
       // create title
       const title = document.createElement("div");
       title.style.width = "fit-content";
@@ -63,7 +96,7 @@ window.onload = () => {
           nimg.src = img.src;
           nimg.style.justifySelf = "center";
           nimg.style.marginBottom = imgMargin;
-          console.log("adding image", nimg)
+          // console.log("adding image", nimg)
           div.append(nimg);
         }
       })
