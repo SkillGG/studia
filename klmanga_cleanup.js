@@ -19,6 +19,12 @@ window.onload = () => {
       window.onkeydown = ({
         code
       }) => {
+        if(code === "ArrowRight"){
+          document.querySelector("#moveright")?.click();
+        }
+        if(code === "ArrowLeft"){
+          document.querySelector("#moveleft")?.click();
+        }
         if (code === "KeyD") {
           if (localStorage.getItem("devMode") !== "true") {
             localStorage.setItem("devMode", "true");
@@ -63,12 +69,14 @@ window.onload = () => {
       ChapterSelect.style.top = "20%";
       ChapterSelect.style.left = "10px";
       const prevBtn = document.createElement("button");
+      prevBtn.id = "moveleft";
       prevBtn.innerText = "Prev";
       prevBtn.onclick = (e)=>{
         newSelect.selectedIndex--;
         newSelect.dispatchEvent(new Event("change"))
       }
       const nextBtn = document.createElement("button");
+      nextBtn.id = "moveright";
       nextBtn.innerText = "Next";
       nextBtn.onclick = (e)=>{
         newSelect.selectedIndex++;
