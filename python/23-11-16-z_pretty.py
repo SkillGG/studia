@@ -4,12 +4,12 @@ import math
 def zad1():
     x = int(input("X: "))
     y = int(input("Y: "))
-    return 2 * (x**4) + math.sqrt(x)/y
+    return 2 * (x**4) + math.sqrt(y)/x
 
 zad1()
 X: 12
 Y: 15
-41472.23094010768
+41472.32274861218
 
 
 #zad 2
@@ -68,10 +68,9 @@ Dzis jest Czwartek, godzina 12:30
 >>> 
 >>> #zad 6
 >>> def zad6():
-...     t = input("Tekst: ")
-...     l = int(input("Liczba: "))
-...     x=0
-...     if t.count("a") == l:
+...     text = input("Tekst: ")
+...     liczba = int(input("Liczba: "))
+...     if text.count("a") >= liczba:
 ...         print("Spełnia")
 ...     else: print("Nie spełnia")
 ... 
